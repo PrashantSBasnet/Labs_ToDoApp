@@ -14,7 +14,7 @@ public class TodoActivity extends AppCompatActivity {
 
     /* In case of state change, such as rotating the phone,
        store the mTodoIndex */
-    private static final String TODO_INDEX = "todoIndex";
+    private static final String TODO_INDEX = "com.example.android_todo_first.todoIndex";
     /* override to write the value of mTodoIndex into
        the Bundle with TODO_INDEX as its key */
     @Override

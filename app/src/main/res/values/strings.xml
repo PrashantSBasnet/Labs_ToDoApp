@@ -5,7 +5,6 @@
     <string name="next">Next</string>
     <string name="prev">Prev</string>
 
-
     <string-array name="todos">
         <item>Wake up</item>
         <item>Drink Coffee</item>
