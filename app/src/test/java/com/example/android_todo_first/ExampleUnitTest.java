@@ -1,4 +1,4 @@
-package com.example.android_todo_first;
+package com.example.todo_first;
 
 import org.junit.Test;
 

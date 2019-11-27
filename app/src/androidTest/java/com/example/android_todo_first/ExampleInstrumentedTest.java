@@ -1,4 +1,4 @@
-package com.example.android_todo_first;
+package com.example.todo_first;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
