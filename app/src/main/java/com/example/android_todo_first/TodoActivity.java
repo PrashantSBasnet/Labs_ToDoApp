@@ -1,4 +1,4 @@
-package com.example.todo_first;
+package com.example.android_todo_first;
 
 import android.content.res.Resources;
 import android.support.v7.app.AppCompatActivity;
@@ -11,18 +11,10 @@ public class TodoActivity extends AppCompatActivity {
 
     private String[] mTodos;
     private int mTodoIndex = 0;
-
+    private TextView TodoTextView;
     /* In case of state change, such as rotating the phone,
        store the mTodoIndex */
     private static final String TODO_INDEX = "com.example.android_todo_first.todoIndex";
-
-    /* override to write the value of mTodoIndex into
-       the Bundle with TODO_INDEX as its key */
-    @Override
-    public void onSaveInstanceState(Bundle savedInstanceState) {
-        super.onSaveInstanceState(savedInstanceState);
-        savedInstanceState.putInt(TODO_INDEX, mTodoIndex);
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,7 +38,6 @@ public class TodoActivity extends AppCompatActivity {
         setContentView(R.layout.activity_todo);
 
         /* initialize member TextView so we can manipulate it later */
-        final TextView TodoTextView;
         TodoTextView = (TextView) findViewById(R.id.textViewTodo);
 
         /* display the first task from mTodo array in the TodoTextView */
@@ -62,7 +53,16 @@ public class TodoActivity extends AppCompatActivity {
                 new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                mTodoIndex += 1;
+
+                 //check index boundary for mTodos
+                if (mTodoIndex < mTodos.length - 1) {
+                    mTodoIndex += 1;
+                } else {
+                    mTodoIndex = 0;
+                }
+
+
+             //   mTodoIndex += 1;
                 TodoTextView.setText(mTodos[mTodoIndex]);
             }
         });
@@ -71,4 +71,26 @@ public class TodoActivity extends AppCompatActivity {
         *   to cycle through mTodos */
 
     }
+
+    /*
+    This callback is called only when there is a saved instance that is previously saved by using
+    onSaveInstanceState(). We restore some state in onCreate(), while we can optionally restore
+    other state here, possibly usable after onStart() has completed.
+    The savedInstanceState Bundle is same as the one used in onCreate(). */
+
+    @Override
+    public void onRestoreInstanceState(Bundle savedInstanceState) {
+        mTodoIndex = savedInstanceState.getInt(TODO_INDEX);
+        TodoTextView.setText(mTodos[mTodoIndex]);
+    }
+
+
+    /* invoked when the activity may be temporarily destroyed, save the instance state here */
+    @Override
+    public void onSaveInstanceState(Bundle savedInstanceState) {
+        savedInstanceState.putInt(TODO_INDEX, mTodoIndex);
+        // call superclass to save any view hierarchy
+        super.onSaveInstanceState(savedInstanceState);
+    }
+
 }
