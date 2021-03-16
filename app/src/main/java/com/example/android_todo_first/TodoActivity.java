@@ -69,6 +69,20 @@ public class TodoActivity extends AppCompatActivity {
 
         /** TODO setup previous button object and listener
         *   to cycle through mTodos */
+        Button buttonPrevios;
+        buttonPrevios = (Button) findViewById(R.id.buttonPrev);
+
+        buttonPrevios.setOnClickListener(
+
+                new View.OnClickListener(){
+                    @Override
+                    public void onClick(View v) {
+                        if (mTodoIndex!=0)
+                        mTodoIndex=mTodoIndex-1;
+                        //   mTodoIndex += 1;
+                        TodoTextView.setText(mTodos[mTodoIndex]);
+                    }
+                });
 
     }
 
@@ -92,5 +106,4 @@ public class TodoActivity extends AppCompatActivity {
         // call superclass to save any view hierarchy
         super.onSaveInstanceState(savedInstanceState);
     }
-
 }
