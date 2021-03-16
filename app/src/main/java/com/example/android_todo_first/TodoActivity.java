@@ -61,7 +61,6 @@ public class TodoActivity extends AppCompatActivity {
                     mTodoIndex = 0;
                 }
 
-
              //   mTodoIndex += 1;
                 TodoTextView.setText(mTodos[mTodoIndex]);
             }
@@ -77,7 +76,7 @@ public class TodoActivity extends AppCompatActivity {
                 new View.OnClickListener(){
                     @Override
                     public void onClick(View v) {
-                        if (mTodoIndex!=0)
+                        if (mTodoIndex!=0) //as cannot reverse back
                         mTodoIndex=mTodoIndex-1;
                         //   mTodoIndex += 1;
                         TodoTextView.setText(mTodos[mTodoIndex]);
