@@ -41,6 +41,9 @@ public class TodoActivity extends AppCompatActivity {
     }
 
 
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -50,7 +53,6 @@ public class TodoActivity extends AppCompatActivity {
         /* call the super class onCreate to complete the creation of Activity
            like the view hierarchy */
         super.onCreate(savedInstanceState);
-
         Log.d(TAG, " **** Just to say the PC is in onCreate!");
 
         /* set the user interface layout for this Activity
