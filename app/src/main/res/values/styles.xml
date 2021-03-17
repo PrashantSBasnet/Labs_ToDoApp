@@ -8,4 +8,10 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="TextViewTodo">
+        <item name="android:textColor">@color/colorSuccess</item>
+        <item name="android:background">@color/backgroundSuccess</item>
+    </style>
+
+
 </resources>
